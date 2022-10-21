@@ -24,14 +24,15 @@ namespace Time
             InitializeComponent();
 
             timer1.Tick += new EventHandler(Timer1_Tick);
-            timer1.Interval = new TimeSpan(0, 0, 1);
+            timer1.Interval = new TimeSpan(0, 0, 0, 0, 500);
             timer1.Start();
             GetWeather();
         }
 
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            if (CountdownTime.Text != "0")
+            //if (CountdownTime.Text != "0")
+            if (!string.Equals(CountdownTime.Text, "0"))
             {
                 CountdownTime.Text = (int.Parse(CountdownTime.Text) - 1).ToString();
             }
