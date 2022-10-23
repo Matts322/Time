@@ -2,13 +2,12 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="images.jpg" />
-    <None Remove="update-button-png-favpng-Y07kd5dHheY96Z4ULC3wXGpfE.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +18,6 @@
 
   <ItemGroup>
     <Resource Include="images.jpg" />
-    <Resource Include="update-button-png-favpng-Y07kd5dHheY96Z4ULC3wXGpfE.jpg" />
   </ItemGroup>
 
 </Project>

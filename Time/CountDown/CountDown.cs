@@ -12,7 +12,6 @@ namespace Time
         private readonly DispatcherTimer timerCountDown = new DispatcherTimer();
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            //if (CountdownTime.Text != "0")
             if (!string.Equals(CountdownTime.Text, "0"))
             {
                 CountdownTime.Text = (int.Parse(CountdownTime.Text) - 1).ToString();
