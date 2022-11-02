@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿//using Newtonsoft.Json;
+using System.Text.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,9 +11,7 @@ namespace Time
     public partial class MainWindow
     {
         static readonly HttpClient client = new HttpClient();
-#pragma warning disable S1075 // URIs should not be hardcoded
         private string RequestUriString = "https://api.openweathermap.org/data/2.5/weather?q=Minsk&units=metric&appid=b1494cc125faf6478950ec35a91a4399";
-#pragma warning restore S1075 // URIs should not be hardcoded
         private readonly DispatcherTimer timerTime = new DispatcherTimer();
         private void InitTime()
         {
@@ -36,8 +35,9 @@ namespace Time
             try
             {
                 string responseBody = await client.GetStringAsync(RequestUriString);
-                WeatherResponse weatherResponse = JsonConvert.DeserializeObject<WeatherResponse>(responseBody);
-                Weather.Text = $"Temperature in {weatherResponse.Name}: {Math.Round(weatherResponse.Main.Temp)} ℃";
+                //WeatherResponse weatherResponse = JsonConvert.DeserializeObject<WeatherResponse>(responseBody);
+                WeatherResponse weatherResponse = JsonSerializer.Deserialize<WeatherResponse>(responseBody.ToString());
+                Weather.Text = $"Temperature in {weatherResponse.Name}: {Math.Round(weatherResponse.Main.Temp)} ℃ Сountry: {weatherResponse.Sys.Country}";
             }
             catch (Exception)
             {
