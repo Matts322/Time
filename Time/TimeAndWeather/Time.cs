@@ -1,10 +1,12 @@
-﻿//using Newtonsoft.Json;
-using System.Text.Json;
+﻿using Newtonsoft.Json;
 using System;
+using System.Diagnostics;
 using System.Net.Http;
+//using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+
 
 namespace Time
 {
@@ -35,9 +37,14 @@ namespace Time
             try
             {
                 string responseBody = await client.GetStringAsync(RequestUriString);
-                //WeatherResponse weatherResponse = JsonConvert.DeserializeObject<WeatherResponse>(responseBody);
-                WeatherResponse weatherResponse = JsonSerializer.Deserialize<WeatherResponse>(responseBody.ToString());
-                Weather.Text = $"Temperature in {weatherResponse.Name}: {Math.Round(weatherResponse.Main.Temp)} ℃ Сountry: {weatherResponse.Sys.Country}";
+
+                //use .Net json parser
+                //JsonNode weatherResponse = JsonNode.Parse(responseBody);
+                //Weather.Text = $"Temperature in {weatherResponse["name"]} is {weatherResponse["main"]["temp"]} ℃ ";
+
+                //use Newtonsoft deserialiser
+                WeatherResponse weatherResponse = JsonConvert.DeserializeObject<WeatherResponse>(responseBody);
+                Weather.Text = $"Temperature in {weatherResponse.Name}: {Math.Round(weatherResponse.Main.Temp)} ℃ Сountry: {weatherResponse.Sys.Country} ";
             }
             catch (Exception)
             {
