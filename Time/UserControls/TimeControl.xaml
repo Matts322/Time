@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Time.UserControls.TimeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Time.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock x:Name="CurrentTime" HorizontalAlignment="Center" FontSize="70" FontWeight="Bold" Foreground="White" Margin="0 20 0 0"/>
+            <TextBlock x:Name="CurrentDate" HorizontalAlignment="Center" FontSize="55" Foreground="White"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontSize="40" Text="City" Margin="20 20 0 20" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#BF9568"/>
+                <TextBox x:Name="SetCity" SpellCheck.IsEnabled="True" TextWrapping="Wrap" Language="ru-ru" FontSize="36" Foreground="White" Margin="20,20,10,20" MinWidth="100" FontWeight="DemiBold"/>
+                <Button HorizontalAlignment="Right" IsDefault="True" Click="Get_New_Weather" Margin="20,0,0,0" MinWidth="50" MinHeight="50" Content="OK" FontSize="22" FontFamily="Arial"/>
+            </StackPanel>
+            <TextBlock x:Name="Weather" HorizontalAlignment="Center" Padding="15" FontSize="40" Foreground="#BF9568" Margin="0 20 0 0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -3,37 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:Time.UserControls"
         mc:Ignorable="d"
         Title="Time" Height="550" Width="1000" Background="#182357">
     <Grid>
         <TabControl Background="MediumPurple" Style="{StaticResource MaterialDesignFilledTabControl}">
-            <TabItem Header="Time" MinWidth="300">
-                <StackPanel>
-                    <TextBlock x:Name="CurrentTime" HorizontalAlignment="Center" FontSize="70" FontWeight="Bold" Foreground="White" Margin="0 20 0 0"/>
-                    <TextBlock x:Name="CurrentDate" HorizontalAlignment="Center" FontSize="55" Foreground="White"/>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock FontSize="40" Text="City" Margin="20 20 0 20" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#BF9568"/>
-                        <TextBox x:Name="setCity" SpellCheck.IsEnabled="True" TextWrapping="Wrap" Language="ru-ru" FontSize="36" Foreground="White" Margin="20,20,10,20" MinWidth="100" FontWeight="DemiBold"/>
-                        <Button HorizontalAlignment="Right" IsDefault="True" Click="Get_New_Weather" Margin="20,0,0,0" MinWidth="50" MinHeight="50" Content="OK" FontSize="22" FontFamily="Arial"/>
-                    </StackPanel>
-                    <TextBlock x:Name="Weather" HorizontalAlignment="Center" Padding="15" FontSize="40" Foreground="#BF9568" Margin="0 20 0 0"/>
-                </StackPanel>
+            <TabItem Header="Time">
+                <uc:TimeControl/>
             </TabItem>
-            <TabItem Header="Countdown" MinWidth="300">
-                <StackPanel>
-                    <TextBox x:Name="CountdownTime" HorizontalAlignment="Center" FontSize="70" MinWidth="45" Foreground="White" Margin="0 10 0 0" Cursor="Arrow"/>
-                    <ToggleButton x:Name="toggleButton" Content="Start/Stop" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" Height="40" Margin="20" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignFlatDarkBgButton}"/>
-                    <Button x:Name="ResetButton" Content="Reset" HorizontalAlignment="Center" MinHeight="40" MinWidth="100" Margin="0,10,0,0" Click="Button_Click" Style="{StaticResource MaterialDesignFlatDarkBgButton}"/>
-                    <TextBlock x:Name="ShowWatch" Padding="15"/>
-                </StackPanel>
+            <TabItem Header="Currency">
+                <uc:CurrencyControl/>
+            </TabItem>
+            <TabItem Header="Countdown">
+                <uc:CountdownControl/>
             </TabItem>
             <TabItem Header="Stopwatch">
-                <StackPanel>
-                    <TextBlock Text="Stopwatch" HorizontalAlignment="Center" Foreground="White" FontSize="45" Margin="0 20 0 0"/>
-                    <Label x:Name="Stopwatch" Content="0" Foreground="White" HorizontalAlignment="Center" FontSize="50" Margin="0 20 0 0"/>
-                    <ToggleButton Content="Start/Stop" Foreground="White" FontSize="25" Style="{StaticResource MaterialDesignFlatDarkBgButton}" Width="150" Height="45" Margin="0 20 0 0" Checked="ToggleButton_Checked_1" Unchecked="ToggleButton_Unchecked_1"/>
-                    <Button x:Name="ResetStopWatch" Content="Reset" FontSize="25" Width="150" Height="45" Margin="0 20 0 0" Click="Button_Click_1" IsEnabled="True" Style="{StaticResource MaterialDesignFlatDarkBgButton}"></Button>
-                </StackPanel>
+               <uc:StopWatchControl/>
             </TabItem>
         </TabControl>
     </Grid>
